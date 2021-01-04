@@ -25,12 +25,12 @@ public class W3dot1 {
     public static void main(String[] args) {
         displayIntro();
         int todayNum = promptUser("Enter today's day of the week (0 for Sunday, 1 for Monday, etc):");
-        if (!checkValidDay((todayNum))){
+        if (!checkValidDay((todayNum))) {
             System.out.println("\n" + todayNum + " is invalid. You must choose a number 0 through 6.");
             return;
         }
         int nextNum = promptUser("Enter the number of days in the future:");
-        if(!checkPositiveNumber(nextNum)){
+        if (!checkPositiveNumber(nextNum)) {
             System.out.println("\n" + nextNum + " is invalid. You must choose a positive number.");
             return;
         }
@@ -41,7 +41,7 @@ public class W3dot1 {
     /**
      * Displays a brief message to the user that explains the program.
      */
-    public static void displayIntro(){
+    public static void displayIntro() {
         System.out.println("Given today's day of the week and some number of days in the future");
         System.out.println("this program will tell you the day of the week for the future day.");
     }
@@ -52,7 +52,7 @@ public class W3dot1 {
      * @param message the message to display to the user
      * @return the int inputted by the user
      */
-    public static int promptUser(String message){
+    public static int promptUser(String message) {
         Scanner input = new Scanner(System.in);
         System.out.print(message + " ");
 
@@ -64,7 +64,7 @@ public class W3dot1 {
      * @param num a number to check
      * @return whether or not a number is positive
      */
-    public static boolean checkPositiveNumber(int num){
+    public static boolean checkPositiveNumber(int num) {
         return num >= 0;
     }
 
@@ -84,8 +84,16 @@ public class W3dot1 {
      * @param todayNum
      * @param nextNum
      */
-    public static void displayDayChange(int todayNum, int nextNum){
-        String[] days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    public static void displayDayChange(int todayNum, int nextNum) {
+        String[] days = {
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+        };
         String today = days[todayNum];
         String futureDay = days[(todayNum + nextNum) % 7];
         System.out.println("Today is " + today + " and the future day is " + futureDay + ".");
@@ -94,7 +102,7 @@ public class W3dot1 {
     /**
      * That's all, folks!
      */
-    public static void sayGoodbye(){
+    public static void sayGoodbye() {
         System.out.println("Goodbye.");
     }
 }
