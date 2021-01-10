@@ -18,16 +18,16 @@ public class W4dot1 {
      * @param args
      */
     public static void main(String[] args) {
-	    displayIntro();
-	    char hex = getHexChar();
-	    if (!checkValidHex(hex)){
+        displayIntro();
+        char hex = getHexChar();
+        if (!checkValidHex(hex)) {
             System.out.println("\n" + hex + " is not a valid hexadecimal digit.");
         } else {
             int decimal = convertHexToDecimal(hex);
             String binary = convertDecimalToBinary(decimal);
             System.out.println("\nThe binary value is " + binary + ".");
         }
-	    sayGoodbye();
+        sayGoodbye();
     }
 
     /**
@@ -35,7 +35,7 @@ public class W4dot1 {
      *
      * @return single character entered by the user
      */
-    public static char getHexChar(){
+    public static char getHexChar() {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a hexadecimal number: ");
 
@@ -48,15 +48,28 @@ public class W4dot1 {
      * @param hex the char to be evaluated
      * @return boolean of whether or not the char is a valid hex
      */
-    public static boolean checkValidHex(char hex){
-        if(Character.isDigit(hex)){
+    public static boolean checkValidHex(char hex) {
+        if (Character.isDigit(hex)) {
             // We don't need to check a range or anything since any single-digit
             // is a-good
             return true;
         }
-        char[] validChars = { 'A', 'B', 'C', 'D', 'E', 'F', 'a', 'b', 'c', 'd', 'e', 'f'};
-        for (char letter : validChars){
-            if(letter == hex){
+        char[] validChars = {
+                'A',
+                'B',
+                'C',
+                'D',
+                'E',
+                'F',
+                'a',
+                'b',
+                'c',
+                'd',
+                'e',
+                'f'
+        };
+        for (char letter: validChars) {
+            if (letter == hex) {
                 return true;
             }
         }
@@ -71,14 +84,28 @@ public class W4dot1 {
      * @param hex the hex character that should be converted to a decimal
      * @return the decimal number equivialnt of the hex number
      */
-    public static int convertHexToDecimal(char hex){
-        if(Character.isDigit(hex)){
+    public static int convertHexToDecimal(char hex) {
+        if (Character.isDigit(hex)) {
             return Integer.parseInt(String.valueOf(hex));
         }
-        char[] ups = { 'A', 'B', 'C', 'D', 'E', 'F' };
-        char[] downs = { 'a', 'b', 'c', 'd', 'e', 'f' };
-        for (int i = 0; i < 6; i++){
-            if (hex == ups[i] || hex == downs[i]){
+        char[] ups = {
+                'A',
+                'B',
+                'C',
+                'D',
+                'E',
+                'F'
+        };
+        char[] downs = {
+                'a',
+                'b',
+                'c',
+                'd',
+                'e',
+                'f'
+        };
+        for (int i = 0; i < 6; i++) {
+            if (hex == ups[i] || hex == downs[i]) {
                 return i + 10;
             }
         }
@@ -92,10 +119,15 @@ public class W4dot1 {
      * @param decimal the decimal number to be converted to binary
      * @return a single-byte binary number as a string
      */
-    public static String convertDecimalToBinary(int decimal){
+    public static String convertDecimalToBinary(int decimal) {
         StringBuilder builder = new StringBuilder();
-        int[] binColumns = { 8, 4, 2, 1 };
-        for(int col : binColumns){
+        int[] binColumns = {
+                8,
+                4,
+                2,
+                1
+        };
+        for (int col: binColumns) {
             boolean match = (decimal & col) == col;
             builder.append(match ? '1' : '0');
         }
@@ -106,7 +138,7 @@ public class W4dot1 {
     /**
      * Displays a basic explanation of the program to the user.
      */
-    public static void displayIntro(){
+    public static void displayIntro() {
         System.out.println("This program converts a hexadecimal digit into a four digit binary number.");
     }
 
@@ -114,7 +146,7 @@ public class W4dot1 {
      * "Now I only want you gone..."
      *      ~ GLaDOS
      */
-    public static void sayGoodbye(){
+    public static void sayGoodbye() {
         System.out.println("Goodbye.");
     }
 }
