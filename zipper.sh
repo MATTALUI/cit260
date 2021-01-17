@@ -1,3 +1,4 @@
+rm -rf */*.zip
 for dir in */; do
   zip -r "${dir%/}.zip" "$dir"
 done
