@@ -60,7 +60,10 @@ public class W3dot2 {
      * @return whether or not a month is valid, being between 1 and 12
      */
     public static boolean checkValidMonth(int month) {
-        return month > 0 && month < 13;
+        boolean isPositive = month > 0;
+        int numberOfMonths = 12;
+
+        return isPositive && month <= numberOfMonths;
     }
 
     /**
@@ -74,6 +77,8 @@ public class W3dot2 {
     public static boolean checkLeapYear(int year) {
         boolean isLeap = false;
 
+        // I know there are magic numbers, but I don't know the math and why
+        // they are what they are, so please forgive me...
         if (year % 4 == 0) {
             if (year % 100 == 0) {
                 if (year % 400 == 0) {
@@ -99,7 +104,8 @@ public class W3dot2 {
      * @return the number of days in the month
      */
     public static int calculateDays(int year, int month) {
-        boolean isFebruary = month == 2;
+        int februaryMonthNumber = 2;
+        boolean isFebruary = month == februaryMonthNumber;
         if (isFebruary && checkLeapYear(year)) {
             return 29; // February of leap year has the 29 days
         }

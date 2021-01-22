@@ -75,7 +75,8 @@ public class W3dot1 {
      * @return whether or not a number is a valid day number
      */
     public static boolean checkValidDay(int dayNum) {
-        return dayNum < 7 && checkPositiveNumber(dayNum);
+        int daysInAWeek = 7;
+        return dayNum < daysInAWeek && checkPositiveNumber(dayNum);
     }
 
     /**
