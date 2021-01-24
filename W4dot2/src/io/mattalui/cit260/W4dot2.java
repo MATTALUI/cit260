@@ -23,9 +23,9 @@ public class W4dot2 {
      * @param args
      */
     public static void main(String[] args) {
-	    displayIntro();
-	    Name name = promptName();
-	    float hours = promptFloat("Enter the hours you worked this week");
+        displayIntro();
+        Name name = promptName();
+        float hours = promptFloat("Enter the hours you worked this week");
         float wage = promptFloat("Enter your hourly wage");
         displayReceipt(name, hours, wage);
         sayGoodbye();
@@ -64,12 +64,19 @@ public class W4dot2 {
      * @param wage the hourly wage
      */
     public static void displayReceipt(Name name, float hours, float wage) {
+        float stateTaxFactor = 0.09f; // 9% State tax
+        float federalTaxFactor = 0.2f; // 20% Federal Tax
+        float grossPay = hours * wage;
+        float stateTaxWitheld = grossPay * stateTaxFactor;
+        float federalTaxWitheld = grossPay * federalTaxFactor;
+        float netPay = grossPay - stateTaxWitheld - federalTaxWitheld;
+
         System.out.format("\nPay Stub for %s\n", name.toString());
         System.out.format("Hourly Wage: $%.2f\n", wage);
-        System.out.format("Gross Pay: $%.2f\n", hours * wage);
-        System.out.format("State Tax Withheld: $%.2f\n", hours * wage * 0.09);
-        System.out.format("Federal Tax Withheld: $%.2f\n", hours * wage * 0.2);
-        System.out.format("Net Pay: $%.2f\n\n", (hours * wage) - (hours * wage * 0.09) - (hours * wage * 0.2));
+        System.out.format("Gross Pay: $%.2f\n", grossPay);
+        System.out.format("State Tax Withheld: $%.2f\n", stateTaxWitheld);
+        System.out.format("Federal Tax Withheld: $%.2f\n", federalTaxWitheld);
+        System.out.format("Net Pay: $%.2f\n\n", netPay);
     }
 
     /**

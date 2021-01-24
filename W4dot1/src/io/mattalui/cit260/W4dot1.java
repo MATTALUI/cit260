@@ -13,7 +13,7 @@ public class W4dot1 {
      *    You may not use any of the conversion methods built into Java, such
      *    as toBinaryString( ), to do this.
      * 5) Outputs the four digit binary number, including any leading zeros.
-     * 6)Outputs a goodbye message.
+     * 6) Outputs a goodbye message.
      *
      * @param args
      */
@@ -38,8 +38,9 @@ public class W4dot1 {
     public static char getHexChar() {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a hexadecimal number: ");
+        int firstIndex = 0;
 
-        return input.next().charAt(0);
+        return input.next().charAt(firstIndex);
     }
 
     /**
@@ -104,13 +105,15 @@ public class W4dot1 {
                 'e',
                 'f'
         };
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < ups.length; i++) {
             if (hex == ups[i] || hex == downs[i]) {
                 return i + 10;
             }
         }
 
-        return 0; // gotta have some default...
+        // If our validations succeed, then we should never reach this point,
+        // but we have to have some kind of default...
+        return 0;
     }
 
     /**
