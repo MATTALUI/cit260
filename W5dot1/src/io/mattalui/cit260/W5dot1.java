@@ -28,7 +28,7 @@ public class W5dot1 {
     public static void displayConversions() {
         System.out.println("kilograms\tpounds");
         System.out.println("---------\t------");
-        int kiloLimit = 15; // Only expecte 1-15 in output
+        int kiloLimit = 15; // Only expect 1-15 in output
         for (int kilo = 1; kilo <= kiloLimit; kilo++){
             float lbsPerKilo = 2.2f; // 1 kilogram = 2.2 pound
             float lbs = kilo * lbsPerKilo;
